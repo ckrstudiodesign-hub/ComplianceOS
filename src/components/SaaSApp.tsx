@@ -180,6 +180,19 @@ const initialDocs: DocumentRecord[] = [
  }
 ];
 
+const testimonials = [
+  { name: "Ahmed M.", role: "Founder, Dubai Trading Co", text: "Avoided a AED 10,000 corporate tax fine. Seamless EmaraTax sync!", stars: "5.0", timeSaved: "Saved AED 10,000 & 40hrs/mo" },
+  { name: "Sarah K.", role: "Operations Manager", text: "Automatically flagged our WPS discrepancies before the MoHRE audit.", stars: "4.5", timeSaved: "Saved 18hrs/mo" },
+  { name: "Faisal A.", role: "CEO, Al Quoz Logistics", text: "Our trade license and Ejari are completely on autopilot now.", stars: "5.0", timeSaved: "Saved AED 2,500 in late fees" },
+  { name: "Elena R.", role: "HR Director", text: "Visa renewals are tracked months in advance. Brilliant dashboard.", stars: "5.0", timeSaved: "Saved 25hrs/mo" },
+  { name: "Tariq H.", role: "Owner, Boutique Retail", text: "The AI legal advisor is like having a PRO on call 24/7.", stars: "4.5", timeSaved: "Saved AED 5,000 on consultants" },
+  { name: "Nadia S.", role: "Finance Lead", text: "Corporate tax filing takes minutes instead of weeks.", stars: "5.0", timeSaved: "Saved 50hrs/mo" },
+  { name: "Omar B.", role: "General Manager", text: "Never missed a DET deadline since we installed ComplianceOS.", stars: "5.0", timeSaved: "Saved AED 8,000 in penalties" },
+  { name: "Fatima J.", role: "Managing Partner", text: "One single dashboard instead of 5 government portals. A lifesaver.", stars: "4.5", timeSaved: "Saved 30hrs/mo" },
+  { name: "Ali N.", role: "E-commerce Founder", text: "Instantly verified our VAT ledgers without an expensive auditor.", stars: "5.0", timeSaved: "Saved AED 15,000 in audit fees" },
+  { name: "Rami E.", role: "Startup CEO", text: "We secured our Hub71 funding faster because our compliance was flawless.", stars: "5.0", timeSaved: "Priceless ROI" }
+];
+
 export default function SaaSApp() {
  const [activeTab, setActiveTab] = useState<string>("dashboard");
  
@@ -249,6 +262,29 @@ export default function SaaSApp() {
  // Inbox focus states
  const [selectedNotice, setSelectedNotice] = useState<ComplianceNotice | null>(initialNotices[0]);
  const [draftingReply, setDraftingReply] = useState<string | null>(null);
+
+ // Testimonial Popup State
+ const [activeTestimonial, setActiveTestimonial] = useState(0);
+ const [showTestimonial, setShowTestimonial] = useState(false);
+ const [testimonialDismissed, setTestimonialDismissed] = useState(false);
+
+ useEffect(() => {
+   // Initial popup delay
+   const initialTimer = setTimeout(() => setShowTestimonial(true), 1500);
+   
+   const interval = setInterval(() => {
+     setShowTestimonial(false);
+     setTimeout(() => {
+       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+       setShowTestimonial(true);
+     }, 600); // Wait for fade out
+   }, 7000); // 7 seconds per testimonial
+
+   return () => {
+     clearTimeout(initialTimer);
+     clearInterval(interval);
+   };
+ }, []);
 
  // Sync state to localstorage
  useEffect(() => {
@@ -433,8 +469,8 @@ export default function SaaSApp() {
   <div className="flex flex-1 overflow-hidden">
   {/* SaaS App Left Sidebar (Bento/Notion styled) */}
   <div className="w-64 hidden md:flex bg-white border-r border-[#E2E8F0] text-[#475569] shadow-sm z-10 flex flex-col pt-5 shrink-0" id="saas-sidemenu">
-  <div className="px-6 pb-6 border-b border-[#E2E8F0] flex flex-col justify-center gap-2">
-    <img src="/logo.png" alt="ComplianceOS Logo" className="h-10 w-auto object-contain self-start" />
+  <div className="px-6 pb-6 border-b border-[#E2E8F0] flex flex-col justify-center gap-3">
+    <img src="/logo.png" alt="ComplianceOS Logo" className="w-64 h-auto object-contain self-start" />
     <span className="text-[10px] text-[#2563EB] font-display tracking-tight font-bold tracking-widest uppercase">PRO Workspace</span>
   </div>
 
@@ -1790,10 +1826,44 @@ export default function SaaSApp() {
  <div className="space-y-6">
  <StrategySuite />
  </div>
- )}
+  )}
 
- </div>
- </div>
- </div>
- );
+  </div>
+  </div>
+
+  {/* Social Proof Testimonial Loop */}
+  <div className={`fixed bottom-6 left-6 z-50 transition-all duration-700 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] origin-bottom-left ${showTestimonial && !testimonialDismissed ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-8 pointer-events-none'}`}>
+    <div className="bg-white border border-[#E2E8F0] shadow-[0_12px_40px_-10px_rgba(0,0,0,0.15)] rounded-2xl p-5 w-[340px] flex gap-4 relative overflow-hidden group">
+      {/* Decorative gradient strip */}
+      <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#2563EB] to-[#10B981]"></div>
+      
+      <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-display font-bold shrink-0 border border-slate-200 shadow-sm">
+        {testimonials[activeTestimonial].name.charAt(0)}
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center justify-between mb-0.5">
+          <span className="font-bold text-slate-900 text-sm leading-tight truncate">{testimonials[activeTestimonial].name}</span>
+          <div className="flex items-center gap-0.5 shrink-0">
+            <span className="text-amber-400 text-xs">★★★★★</span>
+            <span className="text-[10px] text-slate-500 font-bold ml-1">{testimonials[activeTestimonial].stars}</span>
+          </div>
+        </div>
+        <span className="text-[10px] text-slate-400 font-mono block mb-2 truncate">{testimonials[activeTestimonial].role}</span>
+        
+        <p className="text-xs text-slate-600 leading-relaxed font-medium">"{testimonials[activeTestimonial].text}"</p>
+        
+        <div className="mt-3 inline-block bg-emerald-50 border border-emerald-100 px-2 py-1 rounded text-[10px] font-bold text-emerald-700 uppercase tracking-wide">
+          {testimonials[activeTestimonial].timeSaved}
+        </div>
+      </div>
+      
+      {/* Close button */}
+      <button onClick={() => setTestimonialDismissed(true)} className="absolute top-2 right-2 text-slate-300 hover:text-slate-600 transition-colors opacity-0 group-hover:opacity-100">
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  </div>
+  );
 }

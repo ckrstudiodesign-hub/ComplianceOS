@@ -661,6 +661,11 @@ export default function SaaSApp() {
  <Check className="w-3.5 h-3.5" />
  <span>EmaraTax Sync: Active</span>
  </div>
+ 
+ <div className="flex items-center gap-2 text-xs font-mono-ui bg-slate-900 text-white border border-slate-700 px-3 py-1.5 rounded-lg shadow-md hover:shadow-lg transition cursor-help" title="256-bit AES Encryption with UAE Pass integration">
+ <Shield className="w-3.5 h-3.5 text-emerald-400" />
+ <span>Bank-Grade Security</span>
+ </div>
  </div>
  </div>
 
@@ -734,7 +739,7 @@ export default function SaaSApp() {
  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-fadeUp stagger-2">
  
  {/* Card A: Compliance Statistics with Sparkline */}
- <div className="bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-sm bg-white flex flex-col justify-between shadow-xs">
+ <div className="bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl transition-all duration-400">
  <div>
  <div className="flex justify-between items-start">
  <div>
@@ -772,7 +777,7 @@ export default function SaaSApp() {
  </div>
 
  {/* Card B: UAE Corporate Identity Wallet Card (The Fenco inspired card) */}
- <div className="bg-white border border-[#E2E8F0] p-7 rounded-2xl flex flex-col justify-between shadow-sm relative overflow-hidden group">
+ <div className="bg-white border border-[#E2E8F0] p-7 rounded-2xl flex flex-col justify-between shadow-sm relative overflow-hidden group hover:-translate-y-1 hover:shadow-xl transition-all duration-400">
  {/* Abstract light aura decoration */}
  <span className="absolute top-0 right-0 w-36 h-36 bg-white rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-white transition duration-500"></span>
  
@@ -808,7 +813,7 @@ export default function SaaSApp() {
  </div>
 
  {/* Card C: Radial Progress Integrity Gauge */}
- <div className="bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-sm bg-white flex flex-col justify-between shadow-xs">
+ <div className="bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl transition-all duration-400">
  <div className="flex justify-between items-center mb-2">
  <span className="text-[10px] text-slate-500 uppercase tracking-wider font-mono-ui border border-slate-200 bg-white px-2 py-1 rounded inline-block mb-2">ANALYTICS ACCENT</span>
  <h3 className="font-display tracking-tight font-bold text-slate-850 text-sm">Integrity Health</h3>
@@ -865,7 +870,7 @@ export default function SaaSApp() {
  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
  
  {/* Left Side: Recent Portal Events (styled like Last Transactions mockup) */}
- <div className="lg:col-span-2 bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-sm bg-white shadow-xs space-y-4">
+ <div className="lg:col-span-2 bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-400 space-y-4">
  <div className="flex justify-between items-center pb-2 border-b border-slate-100 ">
  <div>
  <h3 className="font-display tracking-tight font-bold text-slate-900 text-sm">Recent Government Audit Logs</h3>
@@ -906,7 +911,7 @@ export default function SaaSApp() {
  <div className="space-y-6">
  
  {/* Visual Bar WPS Quota */}
- <div className="bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-sm bg-white shadow-xs">
+ <div className="bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-400">
  <div className="flex justify-between items-center mb-3">
  <h3 className="font-display tracking-tight font-bold text-slate-900 text-xs uppercase tracking-wide">WPS Salary Compliance</h3>
  <span className="text-[10px] font-display tracking-tight font-bold text-slate-400">Payroll May 2026</span>
@@ -936,7 +941,7 @@ export default function SaaSApp() {
  </div>
 
  {/* Elegant Black Promo Card styled like "More features?" */}
- <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-7 rounded-2xl text-slate-900 shadow-sm flex flex-col justify-between relative overflow-hidden group">
+ <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-7 rounded-2xl text-slate-900 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 hover:shadow-xl transition-all duration-400">
  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-slate-200 rounded-full blur-xl group-hover:bg-slate-200 transition duration-500"></div>
  
  <div>
@@ -963,7 +968,7 @@ export default function SaaSApp() {
  </div>
 
  {/* Row 4: AI Document Audit Scanner - Gorgeous full width drawer */}
- <div className="p-6 bg-white border border-[#E2E8F0] animate-fadeUp stagger-4 premium-card rounded-2xl p-7 shadow-xs relative overflow-hidden">
+ <div className="p-6 bg-white border border-[#E2E8F0] animate-fadeUp stagger-4 rounded-2xl p-7 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-400 relative overflow-hidden">
  <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-full blur-2xl -mr-10 -mt-10"></div>
  
  <h2 className="text-base font-display tracking-tight font-bold text-slate-900 mb-1 flex items-center gap-1.5">
@@ -1832,7 +1837,7 @@ export default function SaaSApp() {
   </div>
 
   {/* Social Proof Testimonial Loop */}
-  <div className={`fixed bottom-6 left-6 z-50 transition-all duration-700 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] origin-bottom-left ${showTestimonial && !testimonialDismissed ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-8 pointer-events-none'}`}>
+  <div className={`fixed bottom-6 right-6 z-50 transition-all duration-700 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] origin-bottom-right ${showTestimonial && !testimonialDismissed ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-8 pointer-events-none'}`}>
     <div className="bg-white border border-[#E2E8F0] shadow-[0_12px_40px_-10px_rgba(0,0,0,0.15)] rounded-2xl p-5 w-[340px] flex gap-4 relative overflow-hidden group">
       {/* Decorative gradient strip */}
       <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#2563EB] to-[#10B981]"></div>

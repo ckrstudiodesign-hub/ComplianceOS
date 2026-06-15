@@ -181,16 +181,16 @@ const initialDocs: DocumentRecord[] = [
 ];
 
 const testimonials = [
-  { name: "Ahmed M.", role: "Founder, Dubai Trading Co", text: "Avoided a AED 10,000 corporate tax fine. Seamless EmaraTax sync!", stars: "5.0", timeSaved: "Saved AED 10,000 & 40hrs/mo" },
-  { name: "Sarah K.", role: "Operations Manager", text: "Automatically flagged our WPS discrepancies before the MoHRE audit.", stars: "4.5", timeSaved: "Saved 18hrs/mo" },
-  { name: "Faisal A.", role: "CEO, Al Quoz Logistics", text: "Our trade license and Ejari are completely on autopilot now.", stars: "5.0", timeSaved: "Saved AED 2,500 in late fees" },
-  { name: "Elena R.", role: "HR Director", text: "Visa renewals are tracked months in advance. Brilliant dashboard.", stars: "5.0", timeSaved: "Saved 25hrs/mo" },
-  { name: "Tariq H.", role: "Owner, Boutique Retail", text: "The AI legal advisor is like having a PRO on call 24/7.", stars: "4.5", timeSaved: "Saved AED 5,000 on consultants" },
-  { name: "Nadia S.", role: "Finance Lead", text: "Corporate tax filing takes minutes instead of weeks.", stars: "5.0", timeSaved: "Saved 50hrs/mo" },
-  { name: "Omar B.", role: "General Manager", text: "Never missed a DET deadline since we installed ComplianceOS.", stars: "5.0", timeSaved: "Saved AED 8,000 in penalties" },
-  { name: "Fatima J.", role: "Managing Partner", text: "One single dashboard instead of 5 government portals. A lifesaver.", stars: "4.5", timeSaved: "Saved 30hrs/mo" },
-  { name: "Ali N.", role: "E-commerce Founder", text: "Instantly verified our VAT ledgers without an expensive auditor.", stars: "5.0", timeSaved: "Saved AED 15,000 in audit fees" },
-  { name: "Rami E.", role: "Startup CEO", text: "We secured our Hub71 funding faster because our compliance was flawless.", stars: "5.0", timeSaved: "Priceless ROI" }
+  { name: "Ahmed M.", role: "Founder, Dubai Trading Co", text: "Our dedicated AI PRO avoided a AED 10,000 corporate tax fine automatically.", stars: "5.0", timeSaved: "AI Saved 40hrs/mo" },
+  { name: "Sarah K.", role: "Operations Manager", text: "The AI auditor flagged WPS discrepancies before MoHRE could penalize us.", stars: "4.5", timeSaved: "AI Saved 18hrs/mo" },
+  { name: "Faisal A.", role: "CEO, Al Quoz Logistics", text: "Our trade license and Ejari are completely on autopilot thanks to the AI.", stars: "5.0", timeSaved: "AI Saved AED 2,500" },
+  { name: "Elena R.", role: "HR Director", text: "The AI tracks visa renewals months in advance and drafts the emails.", stars: "5.0", timeSaved: "AI Saved 25hrs/mo" },
+  { name: "Tariq H.", role: "Owner, Boutique Retail", text: "The AI legal advisor is literally an on-call PRO. Saved us thousands.", stars: "4.5", timeSaved: "AI Saved AED 5,000" },
+  { name: "Nadia S.", role: "Finance Lead", text: "AI automates corporate tax filings in minutes instead of weeks.", stars: "5.0", timeSaved: "AI Saved 50hrs/mo" },
+  { name: "Omar B.", role: "General Manager", text: "Never missed a DET deadline since we let the AI handle our calendar.", stars: "5.0", timeSaved: "AI Saved AED 8,000" },
+  { name: "Fatima J.", role: "Managing Partner", text: "The AI agents replace 5 government portals into one smart dashboard.", stars: "4.5", timeSaved: "AI Saved 30hrs/mo" },
+  { name: "Ali N.", role: "E-commerce Founder", text: "Instantly verified VAT ledgers using AI without an expensive human auditor.", stars: "5.0", timeSaved: "AI Saved AED 15,000" },
+  { name: "Rami E.", role: "Startup CEO", text: "We secured Hub71 funding fast because our AI-managed compliance was flawless.", stars: "5.0", timeSaved: "Priceless AI ROI" }
 ];
 
 export default function SaaSApp() {
@@ -454,15 +454,15 @@ export default function SaaSApp() {
   {/* Global Marquee Ticker */}
   <div className="bg-[#1E293B] text-white text-[11px] font-mono-ui font-semibold tracking-wide py-2.5 overflow-hidden flex whitespace-nowrap shrink-0 items-center border-b border-slate-800 relative z-50">
     <div className="animate-marquee flex gap-12 items-center min-w-full pl-12">
-      <span className="flex items-center gap-1.5"><TrendingUp className="w-3.5 h-3.5 text-emerald-400" /> SAVE 40+ MANUAL FILING HOURS PER MONTH</span>
-      <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-amber-400" /> AVOID AED 50,000+ IN AVERAGE SME PENALTIES</span>
-      <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#3B82F6]" /> AUTOMATE MoHRE, DET, & EmaraTax INSTANTLY</span>
-      <span className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-purple-400" /> 100% CORPORATE TAX RELIEF GUARANTEE</span>
+      <span className="flex items-center gap-1.5"><TrendingUp className="w-3.5 h-3.5 text-emerald-400" /> AI SAVES 40+ MANUAL FILING HOURS PER MONTH</span>
+      <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-amber-400" /> AI PREVENTS AED 50,000+ IN AVERAGE SME PENALTIES</span>
+      <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#3B82F6]" /> AI AUTOMATES MoHRE, DET, & EmaraTax INSTANTLY</span>
+      <span className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-purple-400" /> 100% AI-GUARANTEED CORPORATE TAX RELIEF</span>
       {/* Duplicate for infinite seamless scroll */}
-      <span className="flex items-center gap-1.5"><TrendingUp className="w-3.5 h-3.5 text-emerald-400" /> SAVE 40+ MANUAL FILING HOURS PER MONTH</span>
-      <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-amber-400" /> AVOID AED 50,000+ IN AVERAGE SME PENALTIES</span>
-      <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#3B82F6]" /> AUTOMATE MoHRE, DET, & EmaraTax INSTANTLY</span>
-      <span className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-purple-400" /> 100% CORPORATE TAX RELIEF GUARANTEE</span>
+      <span className="flex items-center gap-1.5"><TrendingUp className="w-3.5 h-3.5 text-emerald-400" /> AI SAVES 40+ MANUAL FILING HOURS PER MONTH</span>
+      <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-amber-400" /> AI PREVENTS AED 50,000+ IN AVERAGE SME PENALTIES</span>
+      <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#3B82F6]" /> AI AUTOMATES MoHRE, DET, & EmaraTax INSTANTLY</span>
+      <span className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-purple-400" /> 100% AI-GUARANTEED CORPORATE TAX RELIEF</span>
     </div>
   </div>
 
@@ -646,9 +646,9 @@ export default function SaaSApp() {
 
  <div className="flex items-center gap-4">
  {/* Quick Audit Bar with Drop-in file analysis */}
- <div className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 transition cursor-pointer relative">
- <Upload className="w-3.5 h-3.5 text-slate-500 " />
- <span>Auditor Scan</span>
+ <div className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 transition cursor-pointer relative shadow-sm border border-slate-200">
+ <Sparkles className="w-3.5 h-3.5 text-blue-600 " />
+ <span>AI Auditor Scan</span>
  <input 
  type="file" 
  onChange={handleUploadAndScan} 
@@ -719,14 +719,14 @@ export default function SaaSApp() {
  <div className="bg-emerald-50 border border-emerald-100 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm animate-fadeUp stagger-1 relative overflow-hidden group">
     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-100 rounded-full blur-2xl -mr-10 -mt-10 opacity-60"></div>
     <div className="relative z-10">
-      <h3 className="text-sm font-bold text-emerald-900 flex items-center gap-2"><Sparkles className="w-4 h-4 text-emerald-600 animate-pulse" /> How ComplianceOS scales your business</h3>
+      <h3 className="text-sm font-bold text-emerald-900 flex items-center gap-2"><Sparkles className="w-4 h-4 text-emerald-600 animate-pulse" /> How ComplianceOS AI scales your business</h3>
       <p className="text-xs text-emerald-800 mt-1.5 leading-relaxed max-w-2xl font-medium">
-        By actively syncing with UAE's EmaraTax, DET, and MoHRE portals, this OS saves your team an average of <strong className="text-emerald-900">40+ hours per month</strong> and <strong className="text-emerald-900">eliminates AED 50,000+ in average annual fines</strong>. Our AI acts as your dedicated PRO and Legal Counsel, ensuring 100% compliance.
+        Our proprietary AI actively syncs with UAE's EmaraTax, DET, and MoHRE portals to act as your autonomous PRO. This AI automation saves your team an average of <strong className="text-emerald-900">40+ hours per month</strong> and <strong className="text-emerald-900">eliminates AED 50,000+ in average annual human-error fines</strong>.
       </p>
     </div>
     <button onClick={() => setActiveTab("strategy")} className="relative z-10 shrink-0 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold font-display px-5 py-3 rounded-xl flex items-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(5,150,105,0.2)] focus-ring shadow-sm shadow-emerald-200">
       <Compass className="w-4 h-4" />
-      Watch Tutorials & ROI
+      Watch AI Tutorials & ROI
     </button>
   </div>
 
@@ -1833,11 +1833,11 @@ export default function SaaSApp() {
 
   {/* Social Proof Testimonial Loop */}
   <div className={`fixed bottom-6 left-6 z-50 transition-all duration-700 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] origin-bottom-left ${showTestimonial && !testimonialDismissed ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-8 pointer-events-none'}`}>
-    <div className="bg-white border border-[#E2E8F0] shadow-[0_12px_40px_-10px_rgba(0,0,0,0.15)] rounded-2xl p-5 w-[340px] flex gap-4 relative overflow-hidden group">
+    <div className="bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-2xl p-5 w-[340px] flex gap-4 relative overflow-hidden group">
       {/* Decorative gradient strip */}
       <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#2563EB] to-[#10B981]"></div>
       
-      <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-display font-bold shrink-0 border border-slate-200 shadow-sm">
+      <div className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-700 font-display font-bold shrink-0 border border-white/60 shadow-sm">
         {testimonials[activeTestimonial].name.charAt(0)}
       </div>
       <div className="flex-1 min-w-0">

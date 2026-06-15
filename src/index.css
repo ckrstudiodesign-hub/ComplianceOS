@@ -127,3 +127,9 @@ body {
   animation-play-state: paused;
 }
 
+/* ── Shimmer Effect for Premium Buttons ── */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

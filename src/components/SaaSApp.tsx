@@ -1833,11 +1833,11 @@ export default function SaaSApp() {
 
   {/* Social Proof Testimonial Loop */}
   <div className={`fixed bottom-6 left-6 z-50 transition-all duration-700 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] origin-bottom-left ${showTestimonial && !testimonialDismissed ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-8 pointer-events-none'}`}>
-    <div className="bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-2xl p-5 w-[340px] flex gap-4 relative overflow-hidden group">
+    <div className="bg-white border border-[#E2E8F0] shadow-[0_12px_40px_-10px_rgba(0,0,0,0.15)] rounded-2xl p-5 w-[340px] flex gap-4 relative overflow-hidden group">
       {/* Decorative gradient strip */}
       <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#2563EB] to-[#10B981]"></div>
       
-      <div className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-700 font-display font-bold shrink-0 border border-white/60 shadow-sm">
+      <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-display font-bold shrink-0 border border-slate-200 shadow-sm">
         {testimonials[activeTestimonial].name.charAt(0)}
       </div>
       <div className="flex-1 min-w-0">

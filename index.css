@@ -1,0 +1,110 @@
+/* ════════════════════════════════════════════
+   ComplianceOS — Premium Design System
+   Inspired by Fenco, Zoho, Notion
+   ════════════════════════════════════════════ */
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ── Smooth Fade Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.animate-fadeIn {
+  animation: fadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.animate-slideInLeft {
+  animation: slideInLeft 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Staggered card entrance */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* ── Typography Overrides ── */
+.font-display {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+.font-mono-ui {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ── Premium Card Hover ── */
+.premium-card {
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.premium-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+  border-color: #CBD5E1;
+}
+
+/* ── Focus Ring ── */
+.focus-ring:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ── Subtle dotted background pattern for empty states ── */
+.dot-pattern {
+  background-image: radial-gradient(#E2E8F0 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(37, 99, 235, 0.15);
+  color: #1E293B;
+}
+
+/* ── Smooth Transitions on body ── */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Status Dot Animation ── */
+@keyframes liveDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+.live-dot {
+  animation: liveDot 2s ease-in-out infinite;
+}

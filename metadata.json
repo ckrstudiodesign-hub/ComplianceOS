@@ -1,0 +1,6 @@
+{
+  "name": "ComplianceOS",
+  "description": "The AI Operating System for UAE Business Compliance",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

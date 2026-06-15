@@ -221,6 +221,36 @@ export default function SaaSApp() {
   const [userInput, setUserInput] = useState("");
   const [chatLoading, setChatLoading] = useState(false);
 
+  // State for Button Simulations
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [connectedAPIs, setConnectedAPIs] = useState<string[]>(['EmaraTax Sync: Active']);
+  const [isConnecting, setIsConnecting] = useState<string | null>(null);
+  const [viewAllRegistry, setViewAllRegistry] = useState(false);
+  
+  // Handlers for simulations
+  const handleDownload = () => {
+    setIsDownloading(true);
+    setTimeout(() => {
+      setIsDownloading(false);
+      alert('Report successfully downloaded: Compliance_Report_ABC_Trading.pdf');
+    }, 1500);
+  };
+  
+  const handleConnectAPI = (apiName: string) => {
+    setIsConnecting(apiName);
+    setTimeout(() => {
+      setIsConnecting(null);
+      if (!connectedAPIs.includes(apiName)) {
+         setConnectedAPIs([...connectedAPIs, apiName]);
+      }
+    }, 2000);
+  };
+  
+  const handleCompleteTask = (id: string, e: any) => {
+    e.stopPropagation();
+    setTasks(tasks.map(t => t.id === id ? { ...t, status: 'completed' } : t));
+  };
+  
   // State for document scanning
   const [scanFiles, setScanFiles] = useState<File | null>(null);
   const [scanning, setScanning] = useState(false);
@@ -396,7 +426,7 @@ export default function SaaSApp() {
   };
 
   return (
-    <div className="flex bg-gradient-to-b from-[#F8FAFC] to-[#F1F5F9] text-[#1E293B] min-h-screen" id="saas-app-root">
+    <div className="flex bg-gradient-to-b from-[#F8FAFC] to-[#F1F5F9] text-[#1E293B] dark:text-white min-h-screen" id="saas-app-root">
       {/* SaaS App Left Sidebar (Bento/Notion styled) */}
       <div className="w-64 hidden md:flex bg-white dark:bg-slate-900 border-r border-[#E2E8F0] text-[#475569] shadow-sm dark:shadow-none z-10 flex flex-col pt-5 shrink-0" id="saas-sidemenu">
         <div className="px-6 pb-6 border-b border-[#E2E8F0] flex items-center gap-3">
@@ -437,7 +467,7 @@ export default function SaaSApp() {
           <button
             onClick={() => setActiveTab("dashboard")}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-              activeTab === "dashboard" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900"
+              activeTab === "dashboard" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900 dark:text-white"
             }`}
           >
             <Shield className="w-4 h-4" />
@@ -447,7 +477,7 @@ export default function SaaSApp() {
           <button
             onClick={() => setActiveTab("tasks")}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-              activeTab === "tasks" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900"
+              activeTab === "tasks" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900 dark:text-white"
             }`}
           >
             <CheckCircle2 className="w-4 h-4" />
@@ -462,7 +492,7 @@ export default function SaaSApp() {
           <button
             onClick={() => setActiveTab("calendar")}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-              activeTab === "calendar" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900"
+              activeTab === "calendar" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900 dark:text-white"
             }`}
           >
             <Calendar className="w-4 h-4" />
@@ -478,7 +508,7 @@ export default function SaaSApp() {
               }
             }}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-              activeTab === "inbox" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900"
+              activeTab === "inbox" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900 dark:text-white"
             }`}
           >
             <Inbox className="w-4 h-4" />
@@ -493,7 +523,7 @@ export default function SaaSApp() {
           <button
             onClick={() => setActiveTab("vault")}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-              activeTab === "vault" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900"
+              activeTab === "vault" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900 dark:text-white"
             }`}
           >
             <FileText className="w-4 h-4" />
@@ -503,7 +533,7 @@ export default function SaaSApp() {
           <button
             onClick={() => setActiveTab("visas")}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-              activeTab === "visas" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900"
+              activeTab === "visas" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900 dark:text-white"
             }`}
           >
             <Users className="w-4 h-4" />
@@ -513,7 +543,7 @@ export default function SaaSApp() {
           <button
             onClick={() => setActiveTab("chat")}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-              activeTab === "chat" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900"
+              activeTab === "chat" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900 dark:text-white"
             }`}
           >
             <Sparkles className="w-4 h-4 text-[#2563EB]" />
@@ -523,7 +553,7 @@ export default function SaaSApp() {
           <button
             onClick={() => setActiveTab("profile")}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-              activeTab === "profile" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900"
+              activeTab === "profile" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900 dark:text-white"
             }`}
           >
             <Building className="w-4 h-4" />
@@ -533,7 +563,7 @@ export default function SaaSApp() {
           <button
             onClick={() => setActiveTab("strategy")}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-              activeTab === "strategy" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900"
+              activeTab === "strategy" ? "bg-blue-50 text-blue-700 font-semibold" : "hover:bg-slate-50 text-slate-600 hover:text-slate-900 dark:text-white"
             }`}
           >
             <Compass className="w-4 h-4 text-[#4F46E5]" />
@@ -542,12 +572,12 @@ export default function SaaSApp() {
         </nav>
 
         {/* Proactive Help Disclaimer */}
-        <div className="p-4 mx-3 my-4 bg-[#F8FAFC] border border-[#E5E7EB] rounded-xl text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">
+        <div className="p-4 mx-3 my-4 bg-[#F8FAFC] dark:bg-slate-950 border border-[#E5E7EB] rounded-xl text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">
           Need legal verification? Our records are synched directly with 2026 Dubai Law, DET, and Emiratisation councils.
         </div>
 
         {/* Integrated User Profile Card (Deel style) */}
-        <div className="p-3 border-t border-[#E5E7EB] bg-[#F8FAFC]">
+        <div className="p-3 border-t border-[#E5E7EB] bg-[#F8FAFC] dark:bg-slate-950">
           <div className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-[#E2E8F0] dark:border-slate-700 p-3 rounded-xl shadow-sm dark:shadow-none flex-1">
             <div className="w-8 h-8 rounded-full bg-[#2563EB] flex items-center justify-center font-display tracking-tight font-bold text-xs text-slate-900 dark:text-white uppercase shadow-xs">MC</div>
             <div className="flex-1 min-w-0">
@@ -620,7 +650,7 @@ export default function SaaSApp() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white dark:bg-slate-900 p-8 rounded-2xl border border-[#E2E8F0] shadow-sm dark:shadow-none">
               <div>
                 <span className="text-[10px] font-display tracking-tight font-bold tracking-widest text-[#2563EB] uppercase block mb-1">WELCOME HOME</span>
-                <h2 className="text-3xl font-display tracking-tight font-bold text-[#1E293B] tracking-tight leading-none">
+                <h2 className="text-3xl font-display tracking-tight font-bold text-[#1E293B] dark:text-white tracking-tight leading-none">
                   Hello, <span className="text-[#2563EB]">Mark Channa</span>
                 </h2>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 font-medium">
@@ -671,7 +701,7 @@ export default function SaaSApp() {
                     </span>
                   </div>
                   <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-4xl font-display tracking-tight font-bold text-[#1E293B] tracking-tight">{getComplianceScore()}%</span>
+                    <span className="text-4xl font-display tracking-tight font-bold text-[#1E293B] dark:text-white tracking-tight">{getComplianceScore()}%</span>
                     <span className="text-xs text-slate-400 font-medium">legal safety rating</span>
                   </div>
                 </div>
@@ -680,7 +710,7 @@ export default function SaaSApp() {
                 <div className="mt-6 flex items-center justify-between border-t border-slate-105 pt-4">
                   <div className="space-y-1">
                     <span className="text-[10px] text-slate-400 block font-medium">Last processed audit</span>
-                    <span className="text-xs font-display tracking-tight font-bold text-[#1E293B]">Continuous EmaraTax monitoring</span>
+                    <span className="text-xs font-display tracking-tight font-bold text-[#1E293B] dark:text-white">Continuous EmaraTax monitoring</span>
                   </div>
                   <div className="opacity-90">
                     <svg className="w-24 h-10 text-[#2563EB]" viewBox="0 0 100 30" fill="none">
@@ -861,7 +891,7 @@ export default function SaaSApp() {
                 </div>
 
                 {/* Elegant Black Promo Card styled like "More features?" */}
-                <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-7 rounded-2xl text-slate-900 dark:text-white shadow-sm dark:shadow-none flex flex-col justify-between relative overflow-hidden group">
+                <div className="bg-[#F8FAFC] dark:bg-slate-950 border border-[#E2E8F0] p-7 rounded-2xl text-slate-900 dark:text-white shadow-sm dark:shadow-none flex flex-col justify-between relative overflow-hidden group">
                   <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-slate-200 dark:bg-slate-700/50 rounded-full blur-xl group-hover:bg-slate-200 dark:bg-slate-700/80 transition duration-500"></div>
                   
                   <div>
@@ -965,7 +995,7 @@ export default function SaaSApp() {
             {/* Row 5: Checklist Area (Takes list remaining pending tasks) */}
             <div className="p-6 bg-white dark:bg-slate-900 border border-[#E2E8F0] rounded-[1.75rem] shadow-xs">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="font-display tracking-tight font-bold text-[#1E293B] text-sm">Active Regulatory Action Checklist</h3>
+                <h3 className="font-display tracking-tight font-bold text-[#1E293B] dark:text-white text-sm">Active Regulatory Action Checklist</h3>
                 <button onClick={() => setActiveTab("tasks")} className="text-xs font-display tracking-tight font-bold text-[#2563EB] hover:underline">
                   Go to Tasks &rarr;
                 </button>

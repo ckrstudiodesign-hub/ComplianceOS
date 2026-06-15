@@ -110,3 +110,20 @@ body {
 .live-dot {
   animation: liveDot 2s ease-in-out infinite;
 }
+
+/* ── Marquee Ticker Animation ── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  /* Needs to be fast but smooth. Using 20s linear infinite */
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+

@@ -412,19 +412,31 @@ export default function SaaSApp() {
  }
  };
 
- return (
- <div className="flex bg-gradient-to-b from-[#F8FAFC] to-[#F1F5F9] text-[#1E293B] min-h-screen" id="saas-app-root">
- {/* SaaS App Left Sidebar (Bento/Notion styled) */}
- <div className="w-64 hidden md:flex bg-white border-r border-[#E2E8F0] text-[#475569] shadow-sm z-10 flex flex-col pt-5 shrink-0" id="saas-sidemenu">
- <div className="px-6 pb-6 border-b border-[#E2E8F0] flex items-center gap-3">
- <div className="w-8 h-8 rounded-lg bg-[#2563EB] flex items-center justify-center text-white font-display tracking-tight font-bold text-sm tracking-tight shadow-sm ">
- C
- </div>
- <div>
- <div className="font-display tracking-tight font-bold text-slate-900 tracking-tight leading-none text-base">ComplianceOS</div>
- <span className="text-[10px] text-[#2563EB] font-display tracking-tight font-bold tracking-widest uppercase">PRO Workspace</span>
- </div>
- </div>
+  return (
+  <div className="flex flex-col bg-gradient-to-b from-[#F8FAFC] to-[#F1F5F9] text-[#1E293B] min-h-screen" id="saas-app-root">
+  
+  {/* Global Marquee Ticker */}
+  <div className="bg-[#1E293B] text-white text-[11px] font-mono-ui font-semibold tracking-wide py-2.5 overflow-hidden flex whitespace-nowrap shrink-0 items-center border-b border-slate-800 relative z-50">
+    <div className="animate-marquee flex gap-12 items-center min-w-full pl-12">
+      <span className="flex items-center gap-1.5"><TrendingUp className="w-3.5 h-3.5 text-emerald-400" /> SAVE 40+ MANUAL FILING HOURS PER MONTH</span>
+      <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-amber-400" /> AVOID AED 50,000+ IN AVERAGE SME PENALTIES</span>
+      <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#3B82F6]" /> AUTOMATE MoHRE, DET, & EmaraTax INSTANTLY</span>
+      <span className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-purple-400" /> 100% CORPORATE TAX RELIEF GUARANTEE</span>
+      {/* Duplicate for infinite seamless scroll */}
+      <span className="flex items-center gap-1.5"><TrendingUp className="w-3.5 h-3.5 text-emerald-400" /> SAVE 40+ MANUAL FILING HOURS PER MONTH</span>
+      <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-amber-400" /> AVOID AED 50,000+ IN AVERAGE SME PENALTIES</span>
+      <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#3B82F6]" /> AUTOMATE MoHRE, DET, & EmaraTax INSTANTLY</span>
+      <span className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-purple-400" /> 100% CORPORATE TAX RELIEF GUARANTEE</span>
+    </div>
+  </div>
+
+  <div className="flex flex-1 overflow-hidden">
+  {/* SaaS App Left Sidebar (Bento/Notion styled) */}
+  <div className="w-64 hidden md:flex bg-white border-r border-[#E2E8F0] text-[#475569] shadow-sm z-10 flex flex-col pt-5 shrink-0" id="saas-sidemenu">
+  <div className="px-6 pb-6 border-b border-[#E2E8F0] flex flex-col justify-center gap-2">
+    <img src="/logo.png" alt="ComplianceOS Logo" className="h-10 w-auto object-contain self-start" />
+    <span className="text-[10px] text-[#2563EB] font-display tracking-tight font-bold tracking-widest uppercase">PRO Workspace</span>
+  </div>
 
  {/* Company Profile Quick Summary - Bento styled light card */}
  <div className="p-4 mx-3 my-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
@@ -659,7 +671,7 @@ export default function SaaSApp() {
  ))}
  <button 
  onClick={() => setActiveTab("visas")}
- className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-250 border-2 border-white flex items-center justify-center text-slate-500 font-display tracking-tight font-bold text-xs transition shadow-xs"
+ className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 border-2 border-white flex items-center justify-center text-slate-500 font-display tracking-tight font-bold text-xs transition shadow-xs"
  >
  +
  </button>
@@ -667,8 +679,23 @@ export default function SaaSApp() {
  </div>
  </div>
 
+ {/* Row 1.5: Business Value Proposition & Tutorials */}
+ <div className="bg-emerald-50 border border-emerald-100 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm animate-fadeUp stagger-1 relative overflow-hidden group">
+    <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-100 rounded-full blur-2xl -mr-10 -mt-10 opacity-60"></div>
+    <div className="relative z-10">
+      <h3 className="text-sm font-bold text-emerald-900 flex items-center gap-2"><Sparkles className="w-4 h-4 text-emerald-600 animate-pulse" /> How ComplianceOS scales your business</h3>
+      <p className="text-xs text-emerald-800 mt-1.5 leading-relaxed max-w-2xl font-medium">
+        By actively syncing with UAE's EmaraTax, DET, and MoHRE portals, this OS saves your team an average of <strong className="text-emerald-900">40+ hours per month</strong> and <strong className="text-emerald-900">eliminates AED 50,000+ in average annual fines</strong>. Our AI acts as your dedicated PRO and Legal Counsel, ensuring 100% compliance.
+      </p>
+    </div>
+    <button onClick={() => setActiveTab("strategy")} className="relative z-10 shrink-0 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold font-display px-5 py-3 rounded-xl flex items-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(5,150,105,0.2)] focus-ring shadow-sm shadow-emerald-200">
+      <Compass className="w-4 h-4" />
+      Watch Tutorials & ROI
+    </button>
+  </div>
+
  {/* Row 2: Bento Row (Health Index, Digital Card, Donut Progress Gauge) */}
- <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-fadeUp stagger-1">
+ <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-fadeUp stagger-2">
  
  {/* Card A: Compliance Statistics with Sparkline */}
  <div className="bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-sm bg-white flex flex-col justify-between shadow-xs">
@@ -1765,6 +1792,7 @@ export default function SaaSApp() {
  </div>
  )}
 
+ </div>
  </div>
  </div>
  );
